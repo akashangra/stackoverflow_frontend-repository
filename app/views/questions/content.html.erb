@@ -1,0 +1,51 @@
+<div class="queTitleclass">
+  <h3 ><a href="" class= "glyphicon glyphicon-user black" ></a>
+    <%= @question["title"] %> </h3>
+  <div class="queDescriptionclass">
+    <p> <%= @question["description"] %> </p>
+  </div>
+  <div class="buttonTabs">
+    <%= button_to "Comment", question_comment_button_path(@question["id"]), method: :get, remote:true, id: 'commentButton' %>
+    <%= button_to "Answers", question_answer_button_path(@question["id"]), method: :get, remote:true, id: 'answerButton' %>
+
+<!--    <button class="buttonTab", id="commentButton">Comment</button>-->
+<!--    <button class="buttonTab" id="answerButton" >Answers</button>-->
+  </div>
+
+  <p  id="answer_comment_space"></p>
+  <%#= render partial: 'layouts/answers', locals: {question: @question} %>
+
+
+
+  <%#= render partial: 'layouts/comments', locals: {question: @question} %>
+
+
+  <%#= form_with url: vote_create_path( "Question",@question["id"], vote_sign_up ) do |f| %>
+
+    <%#= f.submit "Submit" , class: 'btn-primary' %>
+
+  <%# end %>
+
+  <%#= form_with url: vote_create_path( "Question",@question["id"], vote_sign_down ) do |f| %>
+
+    <%#= f.submit "Submit" , class: 'btn-primary' %>
+
+  <%# end %>
+
+  <%#= form_with url: vote_update_path( 2, vote_sign_down) do |f| %>
+
+    <%#= f.submit "Submit" , class: 'btn-primary' %>
+
+  <%# end %>
+
+<!--  <div class="">-->
+<!--    <a href="" class="fa fa-tag fa-lg black" ></a>-->
+<!--    <a href="" class= "fa fa-comment fa-lg black" ></a>-->
+<!--    <a href="" class="fa fa-thumbs-o-up fa-lg black" ></a>-->
+<!--    <a href="" class="fa fa-thumbs-o-down fa-lg black" ></a>-->
+<!--  </div>-->
+
+</div>
+</div>
+
+<%= javascript_include_tag('pageSpecific/questions/index_question') %>

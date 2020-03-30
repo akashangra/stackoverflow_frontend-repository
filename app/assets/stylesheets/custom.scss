@@ -1,2 +1,37 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.queTitleclass
+{
+  padding: 20px;
+  padding-top: 10px;
+  margin:20px;
+  border:1px solid black;
+}
+.black {
+  color: black;
+}
+
+.buttonTabs
+{
+  background-color: gray;
+}
+.buttonTab
+{
+  background-color: inherit;
+  border:none;
+  outline: 0;
+}
+.comment-button
+{
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+.answer-button
+{
+  border: 1px solid black;
+  border-radius: 2px;
+}

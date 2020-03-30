@@ -1,0 +1,18 @@
+
+<%= form_with url: question_create_path do |f| %>
+
+  <div class="form-group">
+    <%= f.label :title, "Title:" %>
+    <%= f.text_field :title, class: 'form-control', id: :title%>
+  </div>
+
+  <div class="form-group">
+
+    <%= f.label :description, "Description:" %>
+    <%= f.text_area(:description, size: '50x10', class: 'form-control', id: :description) %>
+
+  </div>
+
+  <%= f.submit "Submit" , class: 'btn-primary' %>
+
+<% end %>

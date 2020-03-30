@@ -1,0 +1,28 @@
+
+
+<p id="answer_space">
+  <% @answers.each do |answer| %>
+  <p><%= answer["description"] %></p>
+  <% end %>
+</p>
+
+<%= will_paginate @answers%>
+
+<%= form_with url: answer_create_path( params[:question_id] ) do |f| %>
+
+  <div class="form-group">
+
+    <%= f.label :description, "Description:" %>
+    <%= f.text_area(:description, size: '50x10', class: 'form-control', id: :description) %>
+
+  </div>
+
+  <%= f.submit "Add Answer" , class: 'btn-primary' %>
+
+<% end %>
+
+<script>
+    $(function(){
+        $('.pagination a').attr('data-remote', 'true')
+    });
+</script>

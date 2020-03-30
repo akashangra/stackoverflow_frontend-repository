@@ -1,0 +1,12 @@
+<%= form_with url: comment_create_path( "Question",@question["id"] ) do |f| %>
+
+  <div class="form-group">
+
+    <%= f.label :description, "Description:" %>
+    <%= f.text_area(:description, size: '50x10', class: 'form-control', id: :description) %>
+
+  </div>
+
+  <%= f.submit "Submit" , class: 'btn-primary' %>
+
+<% end %>
