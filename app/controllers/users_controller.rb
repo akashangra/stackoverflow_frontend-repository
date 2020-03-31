@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     Net::HTTP.post URI('http://localhost:3001/signup'),
                    params.to_json,
                    "Content-Type" => "application/json"
+    redirect_to login_path
   end
 
   def edit

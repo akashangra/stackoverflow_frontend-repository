@@ -7,22 +7,24 @@ class AnswersController < ApplicationController
     send_post_request( obj.to_json,
                        'http://localhost:3001/create_answer')
 
-
-    res = send_get_request params.to_unsafe_h,
-                           'http://localhost:3001/answers_from_question'
-    @answers = JSON.parse(res.body)
-    @answers = @answers.paginate(:page => params[:page], :per_page => 2)
-
-    render 'answer_button'
+    get_answers
+    render 'answer'
   end
 
+  def get_answers
 
-  def answer_button
     res = send_get_request params.to_unsafe_h,
                            'http://localhost:3001/answers_from_question'
     @answers = JSON.parse(res.body)
-    @answers = @answers.paginate(:page => params[:page], :per_page => 2)
 
+    puts "params[:page]"
+
+    puts params[:page]
+    #@answers = @answers.paginate(:page => params[:page], :per_page => 2)
+  end
+
+  def answer
+    get_answers
   end
 
 

@@ -25,6 +25,7 @@ class SessionsController < ApplicationController
                               obj.to_json,
                               "Content-Type" => "application/json"
 
+    redirect_to questions_index_path
     #puts res["remember_me"]
     #
     #

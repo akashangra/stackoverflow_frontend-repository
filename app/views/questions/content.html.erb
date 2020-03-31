@@ -5,12 +5,18 @@
     <p> <%= @question["description"] %> </p>
   </div>
   <div class="buttonTabs">
-    <%= button_to "Comment", question_comment_button_path(@question["id"]), method: :get, remote:true, id: 'commentButton' %>
-    <%= button_to "Answers", question_answer_button_path(@question["id"]), method: :get, remote:true, id: 'answerButton' %>
-
+    <%= link_to "Comment", question_comment_button_path(@question["id"]),class: "fa fa-tag fa-lg black",
+                method: :get, remote:true, id: 'commentButton' %>
+    <%= link_to "Answers", question_answer_button_path(@question["id"]),class: "fa fa-comment fa-lg black",
+                method: :get, remote:true, id: 'answerButton' %>
+    <%#= link_to "Likes", question_answer_button_path(@question["id"]),class: "fa fa-thumbs-o-up fa-lg black", method: :get, remote:true, id: 'likeButton' %>
+    <%#= link_to "Dislikes", question_answer_button_path(@question["id"]),class: "fa fa-thumbs-o-down fa-lg black", method: :get, remote:true, id: 'dislikeButton' %>
+    <span id ="like_dislike_space"> <%= render 'layouts/votes' %> </span>
+<!--    <div id ="like_dislike_space">Likes</div>-->
 <!--    <button class="buttonTab", id="commentButton">Comment</button>-->
 <!--    <button class="buttonTab" id="answerButton" >Answers</button>-->
   </div>
+
 
   <p  id="answer_comment_space"></p>
   <%#= render partial: 'layouts/answers', locals: {question: @question} %>
@@ -45,7 +51,6 @@
 <!--    <a href="" class="fa fa-thumbs-o-down fa-lg black" ></a>-->
 <!--  </div>-->
 
-</div>
 </div>
 
 <%= javascript_include_tag('pageSpecific/questions/index_question') %>
