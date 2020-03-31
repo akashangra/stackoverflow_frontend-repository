@@ -1,0 +1,5 @@
+elem = document.getElementById("answer_comment_space");
+elem.innerHTML = "<%= escape_javascript(render partial: 'layouts/comments',
+locals: { question_id:params[:question_id]}) %>";
+
+//$('#comment_space').html(   "render partial: 'layouts/answers',locals: {question: @question}"  );

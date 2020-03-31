@@ -3,15 +3,11 @@ class SessionsController < ApplicationController
   end
   def login
 
-    #puts "======"
-    #puts params.to_json'
     obj = params.to_json
     response = Net::HTTP.post URI('http://localhost:3001/login'),
                               obj,
                    "Content-Type" => "application/json"
-    puts "response : "
     obj = JSON.parse(response.body)
-    puts response.body
 
     cookies.permanent.signed[:id] = obj["id"]
     cookies.permanent[:remember_me] = obj["remember_me"]
@@ -25,13 +21,8 @@ class SessionsController < ApplicationController
                               obj.to_json,
                               "Content-Type" => "application/json"
 
-    #puts res["remember_me"]
-    #
-    #
-    #cookies.each do |cookie|
-    #  puts "cookie:"
-    #  puts cookie
-    #end
+    redirect_to questions_index_path
+
 
   end
 

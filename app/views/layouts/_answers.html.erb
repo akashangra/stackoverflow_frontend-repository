@@ -6,23 +6,18 @@
   <% end %>
 </p>
 
-<%= will_paginate @answers%>
+<%#= js_will_paginate @answers%>
+
 
 <%= form_with url: answer_create_path( params[:question_id] ) do |f| %>
 
   <div class="form-group">
 
-    <%= f.label :description, "Description:" %>
-    <%= f.text_area(:description, size: '50x10', class: 'form-control', id: :description) %>
+    <%= f.label :description, "Answer:" %>
+    <%= f.text_area(:description, class: 'form-control', id: :description) %>
 
   </div>
 
   <%= f.submit "Add Answer" , class: 'btn-primary' %>
 
 <% end %>
-
-<script>
-    $(function(){
-        $('.pagination a').attr('data-remote', 'true')
-    });
-</script>

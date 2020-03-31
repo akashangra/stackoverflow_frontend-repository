@@ -1,51 +1,12 @@
 
-<div class="queTitleclass">
-  <h3 ><a href="" class= "glyphicon glyphicon-user black" ></a>
-    <a href="<%=questions_content_path(1) %>">Kya Kroon?</a> </h3>
-  <div class="queDescriptionclass">
-    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-      remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets</p>
-  </div>
-  <div class="">
-    <a href="" class="fa fa-tag fa-lg black" ></a>
-    <a href="" class= "fa fa-comment fa-lg black" ></a>
-    <a href="" class="fa fa-thumbs-o-up fa-lg black" ></a>
-    <a href="" class="fa fa-thumbs-o-down fa-lg black" ></a>
-  </div>
-
-</div>
-</div>
-
-
-<div class="queTitleclass">
-    <h3 ><a href="" class= "glyphicon glyphicon-user black" ></a> Kya Kroon?</h3>
-    <div class="queDescriptionclass">
-      <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
-      </p>
-    </div>
-    <div class="">
-      <a href="" class="fa fa-tag fa-lg black" ></a>
-      <a href="" class= "fa fa-comment fa-lg black" ></a>
-      <a href="" class="fa fa-thumbs-o-up fa-lg black" ></a>
-      <a href="" class="fa fa-thumbs-o-down fa-lg black" ></a>
-    </div>
-
-  </div>
-</div>
-
+<% @questions.each do |question| %>
 
   <div class="queTitleclass">
-    <h3 ><a href="" class= "glyphicon glyphicon-user black" ></a> Kya Kroon?</h3>
+    <h3 ><a href="" class= "glyphicon glyphicon-user black" ></a>
+      <a href="<%=questions_content_path( question["id"]) %>"><%= question["title"] %></a> </h3>
     <div class="queDescriptionclass">
-      <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-        It was popularised in the 1960s with the release of Letraset sheets</p>
+      <p> <%= question["description"] %></p>
     </div>
-    <div class="">
-      <a href="" class="fa fa-tag fa-lg black" ></a>
-      <a href="" class= "fa fa-comment fa-lg black" ></a>
-      <a href="" class="fa fa-thumbs-o-up fa-lg black" ></a>
-      <a href="" class="fa fa-thumbs-o-down fa-lg black" ></a>
-    </div>
-
   </div>
-</div>
+
+<% end %>

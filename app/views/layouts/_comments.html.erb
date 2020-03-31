@@ -1,12 +1,21 @@
-<%= form_with url: comment_create_path( "Question",@question["id"] ) do |f| %>
+<p id="comment_space">
+  <% @comments.each do |comment| %>
+  <p><%= comment["description"] %></p>
+<% end %>
+</p>
+
+<%#= js_will_paginate @answers%>
+
+
+<%= form_with url: comment_create_path( "Question",params[:commentable_id] ) do |f| %>
 
   <div class="form-group">
 
-    <%= f.label :description, "Description:" %>
-    <%= f.text_area(:description, size: '50x10', class: 'form-control', id: :description) %>
+    <%= f.label :description, "Comment:" %>
+    <%= f.text_area(:description, class: 'form-control', id: :description) %>
 
   </div>
 
-  <%= f.submit "Submit" , class: 'btn-primary' %>
+  <%= f.submit "Add Comment" , class: 'btn-primary' %>
 
 <% end %>

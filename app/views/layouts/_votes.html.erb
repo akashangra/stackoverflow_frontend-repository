@@ -1,0 +1,29 @@
+
+
+<% if  @vote["current_vote_sign"] == vote_sign_up%>
+
+  <%= link_to "Likes", vote_delete_path(@vote["current_vote_id"]),class: "fa fa-thumbs-o-up fa-lg up",
+              method: :post, remote:true, id: 'likeButton' %>
+  <%= link_to "Dislikes", vote_update_path(@vote["current_vote_id"],vote_sign_down),class: "fa fa-thumbs-o-down fa-lg black",
+              method: :post, remote:true, id: 'dislikeButton' %>
+
+<% elsif @vote["current_vote_sign"] == vote_sign_down %>
+
+  <%= link_to "Likes", vote_update_path(@vote["current_vote_id"],vote_sign_up),class: "fa fa-thumbs-o-up fa-lg black",
+              method: :post, remote:true, id: 'likeButton' %>
+  <%= link_to "Dislikes", vote_delete_path(@vote["current_vote_id"]),class: "fa fa-thumbs-o-down fa-lg down",
+              method: :post, remote:true, id: 'dislikeButton' %>
+
+<% else %>
+
+  <%= link_to "Likes", vote_create_path("Question",@vote["votable_id"],vote_sign_up),class: "fa fa-thumbs-o-up fa-lg black",
+              method: :post, remote:true, id: 'likeButton' %>
+  <%= link_to "Dislikes", vote_create_path("Question",@vote["votable_id"],vote_sign_down),class: "fa fa-thumbs-o-down fa-lg black",
+              method: :post, remote:true, id: 'dislikeButton' %>
+
+<% end %>
+
+
+
+
+<span>Likes : <%= @vote["like_count"] %>&nbsp; Dislikes : <%= @vote["dislike_count"] %></span>

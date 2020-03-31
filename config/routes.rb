@@ -2,11 +2,11 @@ Rails.application.routes.draw do
 
   #creating a question
   get 'questions/index'
-  get 'question/:question_id/content',to: 'questions#content',as: 'questions_content'
+  get 'question/:id/content',to: 'questions#content',as: 'questions_content'
   get 'question/new',to: 'questions#new'
   post 'question/create',to: 'questions#create'
-  get 'question/comment_button/:question_id',to: 'comments#comment_button', as: 'question_comment_button'
-  get 'question/answer_button/:question_id',to: 'answers#answer_button', as: 'question_answer_button'
+  get 'question/comment/:commentable_id',to: 'comments#comment', as: 'question_comment_button'
+  get 'question/answer/:question_id',to: 'answers#answer', as: 'question_answer_button'
 
   #creating an answer
   post 'answer/:question_id',to: 'answers#create', as: 'answer_create'
